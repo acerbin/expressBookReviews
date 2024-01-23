@@ -34,64 +34,7 @@ app.use("/customer/auth/*", function auth(req,res,next){
     
 });
  
-// Task 10: Get all books - Using Callback
 
-const getBooks = () => {
-    axios.get('http://localhost:5000')
-    .then((response) => {
-        console.log(response.data);
-    })
-    .catch((error) => {
-        console.log(error);
-    })
-}
-// getBooks()
-
-// Task 11: Search by ISBN – Using Promises
-const getBooksByISBN = (isbn) => { 
-    return new Promise((resolve, reject) => {
-        try {
-            const books = axios.get(`http://localhost:5000/isbn/${isbn}`).then((books) => {
-                resolve(books.data)
-            })           
-        } catch (err) {
-            reject(err)
-        }
-    })
-}
-
-// getBooksByISBN(2).then(
-//     (books) => console.log(books),
-//     (err) => console.log(err)
-// )
-
-// Task 12: Search by Author – Async / Await
-const getBooksByAuthor = async(author) => {
-    let booksData;
-    try {
-        booksData = await axios.get(`http://localhost:5000/author/${author}`)
-    } catch(error) {
-        console.log(error)
-        return;
-    }
-    console.log(booksData.data)
-}
-
-//getBooksByAuthor("Unknown")
-
-// Task 12: Search by Title – Async / Await
-const getBooksByTitle = async(title) => {
-    let booksData;
-    try {
-        booksData = await axios.get(`http://localhost:5000/title/${title}`)
-    } catch(error) {
-        console.log(error)
-        return;
-    }
-    console.log(booksData.data)
-}
-
-// getBooksByTitle("The Book Of Job")
 
 const PORT =5000;
 
