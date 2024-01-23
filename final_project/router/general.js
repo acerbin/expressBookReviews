@@ -57,7 +57,6 @@ public_users.get('/author/:author',function (req, res, next) {
     } else {
         res.status(200).json(result);
     }
-
 });
 
 // Get all books based on title
